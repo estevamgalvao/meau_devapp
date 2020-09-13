@@ -45,7 +45,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* meauTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = meauTests.m; sourceTree = "<group>"; };
 		12B88FE141BF3E1592864BA5 /* Pods-meau-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meau-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-meau-tvOSTests/Pods-meau-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* meau.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meau.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Meau.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meau.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = meau/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = meau/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = meau/Images.xcassets; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* meau.app */,
+				13B07F961A680F5B00A75B9A /* Meau.app */,
 				00E356EE1AD99517003FC87E /* meauTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* meau-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* meau-tvOSTests.xctest */,
@@ -194,7 +194,6 @@
 				E8BA0A583CD99A9317960A15 /* Pods-meau-tvOSTests.debug.xcconfig */,
 				12B88FE141BF3E1592864BA5 /* Pods-meau-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -239,7 +238,7 @@
 			);
 			name = meau;
 			productName = meau;
-			productReference = 13B07F961A680F5B00A75B9A /* meau.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Meau.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* meau-tvOS */ = {
@@ -665,7 +664,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = meau;
+				PRODUCT_NAME = Meau;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -687,7 +686,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = meau;
+				PRODUCT_NAME = Meau;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
