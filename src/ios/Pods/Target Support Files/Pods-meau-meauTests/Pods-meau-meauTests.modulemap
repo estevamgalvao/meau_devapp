@@ -1,0 +1,6 @@
+module Pods_meau_meauTests {
+  umbrella header "Pods-meau-meauTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
