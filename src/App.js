@@ -45,6 +45,9 @@ const App: () => React$Node = () => {
                 <Text style={styles.boxTitle}>CADASTRAR ANIMAL</Text>
               </TouchableOpacity>
             </View>
+            <View>
+              <Text style={styles.loginStyle}>login</Text>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -96,6 +99,13 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
 
+  loginStyle: {
+    fontSize: 16,
+    color: '#88c9bf',
+
+    marginTop: 44,
+    marginBottom: 68,
+  },
   postTitle: {
     fontFamily: 'Comic Sans',
     fontSize: 72,
