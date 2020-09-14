@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   SafeAreaView,
+  Image,
   StyleSheet,
   ScrollView,
   View,
@@ -48,6 +49,11 @@ const App: () => React$Node = () => {
             <View>
               <Text style={styles.loginStyle}>login</Text>
             </View>
+
+            <Image
+              source={require('./assets/images/Meau_marca_2.png')}
+              style={styles.bottomImage}
+            />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -118,6 +124,12 @@ const styles = StyleSheet.create({
   postDescription: {
     fontSize: 16,
     color: '#757575',
+  },
+
+  bottomImage: {
+    height: 44,
+    width: 122,
+    marginBottom: 32,
   },
 });
 
