@@ -8,63 +8,52 @@
 
 import React from 'react';
 import {
+  Button,
+  Image,
   SafeAreaView,
-  StyleSheet,
   ScrollView,
+  StatusBar,
+  StyleSheet,
   View,
   Text,
-  StatusBar,
+  TouchableOpacity,
 } from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+          <View style={styles.container}>
+            <View>
+              <Text style={styles.title}>Olá!</Text>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
+            <View style={styles.messageView}>
+              <Text style={styles.message}>Bem vindo ao Meau!</Text>
+              <Text style={styles.message}>
+                Aqui você pode adotar, doar e ajudar
               </Text>
+              <Text style={styles.message}>cães e gatos com facilidade.</Text>
+
+              <Text style={styles.message}>Qual o seu interesse?</Text>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
+            <TouchableOpacity style={styles.buttons} onPress={this.onPress}>
+              <Text>ADOTAR</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttons} onPress={this.onPress}>
+              <Text>AJUDAR</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttons} onPress={this.onPress}>
+              <Text>CADASTRAR ANIMAL</Text>
+            </TouchableOpacity>
+            <View style={styles.loginView}>
+              <Button color="#88c9bf" title="Hey" />
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+            <Image
+              style={styles.image}
+              source={require('./assets/images/home/Meau_marca.png')}
+            />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -73,41 +62,42 @@ const App: () => React$Node = () => {
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  title: {
+    marginTop: 56,
+    marginBottom: 52,
+    fontSize: 72,
+    color: '#ffd358',
   },
-  body: {
-    backgroundColor: Colors.white,
+  message: {
+    fontSize: 16,
+    color: '#757575',
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  messageView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 48,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
+  buttons: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ffd358',
+    width: 232,
+    height: 40,
+    marginTop: 16,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+  loginView: {
+    marginTop: 44,
+    marginBottom: 68,
   },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  image: {
+    height: 44,
+    width: 122,
   },
 });
 
