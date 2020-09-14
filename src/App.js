@@ -16,6 +16,7 @@ import {
   StyleSheet,
   View,
   Text,
+  TouchableHighlight,
   TouchableOpacity,
 } from 'react-native';
 
@@ -48,7 +49,9 @@ const App: () => React$Node = () => {
               <Text>CADASTRAR ANIMAL</Text>
             </TouchableOpacity>
             <View style={styles.loginView}>
-              <Button color="#88c9bf" title="Hey" />
+              <TouchableHighlight>
+                <Text style={styles.loginBtn}>login</Text>
+              </TouchableHighlight>
             </View>
             <Image
               style={styles.image}
@@ -73,10 +76,12 @@ const styles = StyleSheet.create({
     marginBottom: 52,
     fontSize: 72,
     color: '#ffd358',
+    fontFamily: 'Courgette-Regular',
   },
   message: {
     fontSize: 16,
     color: '#757575',
+    fontFamily: 'Roboto-Regular',
   },
   messageView: {
     justifyContent: 'center',
@@ -90,10 +95,16 @@ const styles = StyleSheet.create({
     width: 232,
     height: 40,
     marginTop: 16,
+    fontFamily: 'Roboto-Regular',
   },
   loginView: {
     marginTop: 44,
     marginBottom: 68,
+  },
+  loginBtn: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: 16,
+    color: '#88c9bf',
   },
   image: {
     height: 44,
