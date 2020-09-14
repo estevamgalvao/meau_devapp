@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -14,57 +6,45 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
 } from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" />
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
+        <ScrollView>
+          <View style={styles.container}>
+            <View style={styles.postContainer}>
+              <Text style={styles.postTitle}>Olá!</Text>
+              <Text style={styles.postDescription}>Bem vindo ao Meau!</Text>
+              <Text style={styles.postDescription}>
+                Aqui você pode adotar, doar e ajudar
               </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
+              <Text style={styles.postDescription}>
+                cães e gatos com facilidade.
               </Text>
+              <Text style={styles.postDescription}>Qual o seu interesse?</Text>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
+
+            <View>
+              <TouchableOpacity style={styles.buttonBox}>
+                <Text style={styles.boxTitle}>ADOTAR</Text>
+              </TouchableOpacity>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
+
+            <View>
+              <TouchableOpacity style={styles.buttonBox}>
+                <Text style={styles.boxTitle}>AJUDAR</Text>
+              </TouchableOpacity>
             </View>
-            <LearnMoreLinks />
+
+            <View>
+              <TouchableOpacity style={styles.buttonBox}>
+                <Text style={styles.boxTitle}>CADASTRAR ANIMAL</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -73,41 +53,61 @@ const App: () => React$Node = () => {
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+
+  postContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 52,
+    backgroundColor: '#FFF',
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
+
+  boxTitle: {
     fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+    color: '#434343',
+  },
+
+  buttonBox: {
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    backgroundColor: '#ffd358',
+
+    marginBottom: 12,
+
+    width: 232,
+    height: 40,
+
+    borderRadius: 2,
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
+  },
+
+  postTitle: {
+    fontFamily: 'Comic Sans',
+    fontSize: 72,
+    fontWeight: 'bold',
+    marginBottom: 52,
+    marginTop: 56,
+    color: '#ffd358',
+  },
+
+  postDescription: {
+    fontSize: 16,
+    color: '#757575',
   },
 });
 
