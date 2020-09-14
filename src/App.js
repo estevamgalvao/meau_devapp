@@ -1,14 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
-  Button,
   Image,
   SafeAreaView,
   ScrollView,
@@ -23,39 +14,48 @@ import {
 const App: () => React$Node = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" />
       <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <ScrollView>
           <View style={styles.container}>
-            <View>
-              <Text style={styles.title}>Olá!</Text>
-            </View>
-            <View style={styles.messageView}>
-              <Text style={styles.message}>Bem vindo ao Meau!</Text>
-              <Text style={styles.message}>
+            <View style={styles.postContainer}>
+              <Text style={styles.postTitle}>Olá!</Text>
+              <Text style={styles.postDescription}>Bem vindo ao Meau!</Text>
+              <Text style={styles.postDescription}>
                 Aqui você pode adotar, doar e ajudar
               </Text>
-              <Text style={styles.message}>cães e gatos com facilidade.</Text>
-
-              <Text style={styles.message}>Qual o seu interesse?</Text>
+              <Text style={styles.postDescription}>
+                cães e gatos com facilidade.
+              </Text>
+              <Text style={styles.postDescription}>Qual o seu interesse?</Text>
             </View>
-            <TouchableOpacity style={styles.buttons} onPress={this.onPress}>
-              <Text>ADOTAR</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttons} onPress={this.onPress}>
-              <Text>AJUDAR</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttons} onPress={this.onPress}>
-              <Text>CADASTRAR ANIMAL</Text>
-            </TouchableOpacity>
-            <View style={styles.loginView}>
+
+            <View>
+              <TouchableOpacity style={styles.buttonBox}>
+                <Text style={styles.boxTitle}>ADOTAR</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View>
+              <TouchableOpacity style={styles.buttonBox}>
+                <Text style={styles.boxTitle}>AJUDAR</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View>
+              <TouchableOpacity style={styles.buttonBox}>
+                <Text style={styles.boxTitle}>CADASTRAR ANIMAL</Text>
+              </TouchableOpacity>
+            </View>
+            <View>
               <TouchableHighlight>
-                <Text style={styles.loginBtn}>login</Text>
+                <Text style={styles.loginStyle}>login</Text>
               </TouchableHighlight>
             </View>
+
             <Image
-              style={styles.image}
               source={require('./assets/images/home/Meau_marca.png')}
+              style={styles.bottomImage}
             />
           </View>
         </ScrollView>
@@ -69,46 +69,60 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF',
   },
-  title: {
-    marginTop: 56,
-    marginBottom: 52,
-    fontSize: 72,
-    color: '#ffd358',
-    fontFamily: 'Courgette-Regular',
-  },
-  message: {
-    fontSize: 16,
-    color: '#757575',
-    fontFamily: 'Roboto-Regular',
-  },
-  messageView: {
+  postContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 48,
+    marginBottom: 52,
+    backgroundColor: '#FFF',
   },
-  buttons: {
+  boxTitle: {
+    fontSize: 12,
+    color: '#434343',
+    fontFamily: 'Roboto-Regular',
+  },
+  buttonBox: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ffd358',
+    marginBottom: 12,
     width: 232,
     height: 40,
-    marginTop: 16,
-    fontFamily: 'Roboto-Regular',
+    borderRadius: 2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
-  loginView: {
+  loginStyle: {
+    fontSize: 16,
+    fontFamily: 'Roboto-Regular',
+    color: '#88c9bf',
     marginTop: 44,
     marginBottom: 68,
   },
-  loginBtn: {
+  postTitle: {
+    fontFamily: 'Courgette-Regular',
+    fontSize: 72,
+    fontWeight: 'bold',
+    marginBottom: 52,
+    marginTop: 56,
+    color: '#ffd358',
+  },
+  postDescription: {
     fontFamily: 'Roboto-Regular',
     fontSize: 16,
-    color: '#88c9bf',
+    color: '#757575',
   },
-  image: {
+  bottomImage: {
     height: 44,
     width: 122,
+    marginBottom: 32,
   },
 });
 
