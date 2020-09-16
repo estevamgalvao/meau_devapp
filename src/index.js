@@ -1,9 +1,15 @@
-/**
- * @format
- */
+import React from 'react';
+import {View, Text} from 'react-native';
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+import Introducao from './screens/Introducao';
+// import { Container } from './styles';
 
-AppRegistry.registerComponent(appName, () => App);
+const src = () => {
+  return (
+    <View>
+      <Text>Hello src</Text>
+    </View>
+  );
+};
+
+export default src;
