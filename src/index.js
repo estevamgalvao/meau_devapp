@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 import Introducao from './screens/Introducao';
 // import { Container } from './styles';
@@ -7,9 +7,17 @@ import Introducao from './screens/Introducao';
 const src = () => {
   return (
     <View>
-      <Text>Hello src</Text>
+      <Text style={styles.boxTitle}>Hello SRC</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  boxTitle: {
+    fontSize: 40,
+    color: '#434343',
+    fontFamily: 'Courgette-Regular',
+  },
+});
 
 export default src;
