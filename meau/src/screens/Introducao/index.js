@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 
 import {
   Button,
@@ -10,6 +10,7 @@ import {
   ContainerMessages,
   Image,
   Message,
+  SafeArea,
   Title,
 } from './styles';
 
@@ -20,6 +21,7 @@ const Introducao = ({navigation}) => {
 
   return (
     <>
+      <SafeArea />
       <StatusBar barStyle="dark-content" />
       <Container>
         <Title>Olá!</Title>
