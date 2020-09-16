@@ -19,14 +19,14 @@ import {
   NavBox,
   ActionBox,
   ActionText,
-  InputBox, //talvez trocar box_nome text_nome, assim da p pesquisar facil
+  InputBox, // talvez trocar box_nome text_nome, assim da p pesquisar facil
 } from './styles';
 
 // import {Theme} from '../../constants';
 
 const CadastroPessoal = () => {
   return (
-    //Implementar NavBar - ActionBar
+    // Implementar NavBar - ActionBar
     <ScrollView>
       <Container>
         <NavBox />

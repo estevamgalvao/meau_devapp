@@ -7,19 +7,22 @@ import {
   StyleSheet,
   View,
   Text,
-  TouchableHighlight,
   TouchableOpacity,
 } from 'react-native';
 
 // import {Container} from './styles';
 
-const Introducao = () => {
+const Introducao = ({navigation}) => {
+  function navigateToLogin() {
+    navigation.navigate('Login');
+  }
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
         <ScrollView>
-          <View style={styles.container}>
+          <View style={styles.postContainer}>
             <View style={styles.postContainer}>
               <Text style={styles.postTitle}>Olá!</Text>
               <Text style={styles.postDescription}>Bem vindo ao Meau!</Text>
@@ -50,15 +53,15 @@ const Introducao = () => {
               </TouchableOpacity>
             </View>
             <View>
-              <TouchableHighlight>
+              <TouchableOpacity onPress={navigateToLogin}>
                 <Text style={styles.loginStyle}>login</Text>
-              </TouchableHighlight>
+              </TouchableOpacity>
             </View>
 
             <Image
               // Criar uma constant para guardar os path de imagens na mesma
               // hierarquia da pasta de imagens
-              source={require('/home/estevamalbuquerque/Documentos/meau_app/src/assets/images/Introducao/Meau_marca.png')}
+              source={require('../../assets/images/Introducao/Meau_marca.png')}
               style={styles.bottomImage}
             />
           </View>
