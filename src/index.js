@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-import Introducao from './screens/Introducao';
+// import Introducao from './screens/Introducao';
 // import { Container } from './styles';
 
 const src = () => {
