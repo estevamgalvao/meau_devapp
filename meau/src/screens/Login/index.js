@@ -19,11 +19,13 @@ import {
   ContainerLogin,
   InputUser,
   InputPassword,
+  SafeArea,
 } from './styles';
 
 const Login = () => {
   return (
     <>
+      <SafeArea />
       <Container>
         <ContainerLogin>
           <InputUser autoCapitalize="none" placeholder="Nome de usuário" />

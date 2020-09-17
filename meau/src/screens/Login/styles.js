@@ -67,3 +67,7 @@ export const InputPassword = styled(InputUser)`
   margin-top: 0px;
   margin-bottom: 52px;
 `;
+
+export const SafeArea = styled.SafeAreaView`
+  background-color: #fafafa;
+`;
