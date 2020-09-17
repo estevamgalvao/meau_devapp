@@ -2,6 +2,7 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 
+import CadastroAnimal from './screens/CadastroAnimal';
 import CadastroPessoal from './screens/CadastroPessoal';
 import Introducao from './screens/Introducao';
 import Login from './screens/Login';
@@ -29,6 +30,7 @@ export default function App() {
       <Drawer.Screen name="Introducao" component={Introducao} />
       <Drawer.Screen name="Login" component={Login} />
       <Drawer.Screen name="CadastroPessoal" component={CadastroPessoal} />
+      <Drawer.Screen name="CadastroAnimal" component={CadastroAnimal} />
     </Drawer.Navigator>
   );
 }
