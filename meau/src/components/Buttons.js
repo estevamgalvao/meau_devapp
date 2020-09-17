@@ -9,6 +9,6 @@ export const Rectangular = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   background-color: ${(props) => props.color || '#FFF5'};
-  margin-top: ${(props) => props.mtop || '25px'};
-  margin-bottom: ${(props) => props.mbottom || '25px'};
+  margin-top: ${(props) => props.marginTop || '25px'};
+  margin-bottom: ${(props) => props.marginBottom || '25px'};
 `;

@@ -102,7 +102,10 @@ const CadastroPessoal = () => {
             </BoxImage>
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Buttons.Rectangular color="#88c9bf" mtop="32px" mbottom="24px">
+            <Buttons.Rectangular
+              color="#88c9bf"
+              marginTop="32px"
+              marginBottom="24px">
               <TextButton>FAZER CADASTRO</TextButton>
             </Buttons.Rectangular>
           </View>

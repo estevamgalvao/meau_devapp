@@ -39,13 +39,22 @@ const Login = () => {
           </BoxInput>
         </BoxForm>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Buttons.Rectangular color="#88c9bf" mtop="52px" mbottom="72px">
+          <Buttons.Rectangular
+            color="#88c9bf"
+            marginTop="52px"
+            marginBottom="72px">
             <TextButton color="#434343">ENTRAR</TextButton>
           </Buttons.Rectangular>
-          <Buttons.Rectangular color="#194f7c" mtop="0px" mbottom="0px">
+          <Buttons.Rectangular
+            color="#194f7c"
+            marginTop="0px"
+            marginBottom="0px">
             <TextButton>ENTRAR COM FACEBOOK</TextButton>
           </Buttons.Rectangular>
-          <Buttons.Rectangular color="#f15f5c" mtop="8px" mbottom="0px">
+          <Buttons.Rectangular
+            color="#f15f5c"
+            marginTop="8px"
+            marginBottom="0px">
             <TextButton>ENTRAR COM GOOGLE</TextButton>
           </Buttons.Rectangular>
         </View>
