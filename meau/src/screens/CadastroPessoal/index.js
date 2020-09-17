@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {View, TextInput, ScrollView} from 'react-native';
 import {Buttons, NavigationDrawer, SafeArea} from '../../components';
 
@@ -97,7 +98,7 @@ const CadastroPessoal = () => {
           </BoxForm>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <BoxImage>
-              {/* <Icon name="control-point" size={30} color="#757575" /> */}
+              <Icon name="control-point" size={30} color="#757575" />
               <TextImage>adicionar foto</TextImage>
             </BoxImage>
           </View>
