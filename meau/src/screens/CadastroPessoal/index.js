@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, TextInput, ScrollView} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
   BoxAction,
@@ -25,11 +24,7 @@ const CadastroPessoal = () => {
     <>
       <BoxNav />
       <BoxAction>
-        <NavigationDrawer
-          color="#434343"
-          backgroundColor="#cfe9e5"
-          text="CADASTRO"
-        />
+        <NavigationDrawer color="#434343" backgroundColor="#cfe9e5" />
         <TextTitle>Cadastro Pessoal</TextTitle>
       </BoxAction>
       <ScrollView>

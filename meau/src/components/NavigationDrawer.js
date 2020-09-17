@@ -11,7 +11,8 @@ const NavigationDrawer = ({color, backgroundColor}) => {
       style={{
         justifyContent: 'center',
         alignItems: 'flex-start',
-        margin: 5,
+        padding: 5,
+        backgroundColor: `${backgroundColor || '#FFF'}`,
       }}>
       <Icon.Button
         name="ios-menu"

@@ -30,11 +30,7 @@ const Login = () => {
     <>
       <BoxNav />
       <BoxAction>
-        <NavigationDrawer
-          color="#434343"
-          backgroundColor="#cfe9e5"
-          text="CADASTRO"
-        />
+        <NavigationDrawer color="#434343" backgroundColor="#cfe9e5" />
         <TextTitle>Login</TextTitle>
       </BoxAction>
       <SafeArea />

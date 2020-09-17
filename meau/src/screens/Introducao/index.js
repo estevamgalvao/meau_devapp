@@ -24,7 +24,7 @@ const Introducao = ({navigation}) => {
   return (
     <>
       <SafeArea />
-      <NavigationDrawer />
+      <NavigationDrawer backgroundColor="#fafafa" color="#88c9bf" />
       <StatusBar barStyle="dark-content" />
       <Container>
         <Title>Olá!</Title>
