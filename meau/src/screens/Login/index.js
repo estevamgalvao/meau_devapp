@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Button,
-  ScrollView,
-} from 'react-native';
+import {View, TextInput} from 'react-native';
 import {Buttons, NavigationDrawer} from '../../components';
 
 import {
@@ -14,11 +7,6 @@ import {
   BoxForm,
   BoxInput,
   BoxNav,
-  ButtonText,
-  ButtonTextSocialNetworks,
-  ButtonSingIn,
-  ButtonSingInFacebook,
-  ButtonSingInGoogle,
   Container,
   SafeArea,
   TextTitle,
@@ -62,18 +50,6 @@ const Login = () => {
             <TextButton>ENTRAR COM GOOGLE</TextButton>
           </Buttons.Rectangular>
         </View>
-
-        {/* <ButtonSingIn>
-          <ButtonText>ENTRAR</ButtonText>
-        </ButtonSingIn>
-        <ButtonSingInFacebook>
-          <ButtonTextSocialNetworks>
-            ENTRA COM FACEBOOK
-          </ButtonTextSocialNetworks>
-        </ButtonSingInFacebook>
-        <ButtonSingInGoogle>
-          <ButtonTextSocialNetworks>ENTRA COM GOOGLE</ButtonTextSocialNetworks>
-        </ButtonSingInGoogle> */}
       </Container>
     </>
   );

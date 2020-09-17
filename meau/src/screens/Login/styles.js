@@ -28,40 +28,6 @@ export const BoxNav = styled.StatusBar.attrs({
   backgroundColor: '#88c9bf',
 })``;
 
-export const ButtonSingIn = styled.TouchableOpacity`
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 232px;
-  height: 40px;
-  padding: 12px;
-  border-radius: 2px;
-  background-color: #88c9bf;
-`;
-
-export const ButtonSingInFacebook = styled(ButtonSingIn)`
-  margin-top: 72px;
-  margin-bottom: 8px;
-  background-color: #194f7c;
-`;
-
-export const ButtonSingInGoogle = styled(ButtonSingInFacebook)`
-  margin-top: 0px;
-  background-color: #f15f5c;
-`;
-
-export const ButtonText = styled.Text`
-  color: #434343;
-  font-size: 12px;
-  font-family: 'Roboto-Regular';
-`;
-
-export const ButtonTextSocialNetworks = styled.Text`
-  color: #f7f7f7;
-  font-size: 12px;
-  font-family: 'Roboto-Regular';
-`;
-
 export const Container = styled.View`
   flex: 1;
   background-color: #fafafa;
