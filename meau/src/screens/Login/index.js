@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, TextInput} from 'react-native';
-import {Buttons, NavigationDrawer} from '../../components';
+import {Buttons, NavigationDrawer, SafeArea} from '../../components';
 
 import {
   BoxAction,
@@ -8,7 +8,6 @@ import {
   BoxInput,
   BoxNav,
   Container,
-  SafeArea,
   TextTitle,
   TextButton,
 } from './styles';
@@ -16,12 +15,12 @@ import {
 const Login = () => {
   return (
     <>
+      <SafeArea color="#cfe9e5" />
       <BoxNav />
       <BoxAction>
         <NavigationDrawer color="#434343" backgroundColor="#cfe9e5" />
         <TextTitle>Login</TextTitle>
       </BoxAction>
-      <SafeArea />
 
       <Container>
         <BoxForm>

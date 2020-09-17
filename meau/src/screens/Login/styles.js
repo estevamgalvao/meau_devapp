@@ -62,10 +62,6 @@ export const InputPassword = styled(InputUser)`
   margin-bottom: 52px;
 `;
 
-export const SafeArea = styled.SafeAreaView`
-  background-color: #fafafa;
-`;
-
 export const TextButton = styled.Text`
   font-size: 12px;
   font-family: 'Roboto-Regular';

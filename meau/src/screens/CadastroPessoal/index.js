@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TextInput, ScrollView} from 'react-native';
+import {Buttons, NavigationDrawer, SafeArea} from '../../components';
 
 import {
   BoxAction,
@@ -17,11 +18,10 @@ import {
   TextTitle,
 } from './styles';
 
-import {Buttons, NavigationDrawer} from '../../components';
-
 const CadastroPessoal = () => {
   return (
     <>
+      <SafeArea color="#cfe9e5" />
       <BoxNav />
       <BoxAction>
         <NavigationDrawer color="#434343" backgroundColor="#cfe9e5" />
