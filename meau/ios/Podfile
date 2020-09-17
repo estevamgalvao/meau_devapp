@@ -8,6 +8,9 @@ target 'meau_app' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+
+
+
   target 'meau_appTests' do
     inherit! :complete
     # Pods for testing
