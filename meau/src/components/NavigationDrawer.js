@@ -1,20 +1,29 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {View} from 'react-native';
 
-const NavigationDrawer = () => {
+const NavigationDrawer = ({color, backgroundColor}) => {
   const navigation = useNavigation();
 
   return (
-    <Icon.Button
-      name="ios-menu"
-      size={25}
-      color="#88c9bf"
-      backgroundColor="#fafafa"
-      onPress={() => {
-        navigation.openDrawer();
-      }}
-    />
+    <View
+      style={{
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        margin: 5,
+      }}>
+      <Icon.Button
+        name="ios-menu"
+        size={30}
+        color={color || '#000'}
+        backgroundColor={backgroundColor || '#FFF'}
+        width="auto"
+        onPress={() => {
+          navigation.openDrawer();
+        }}
+      />
+    </View>
   );
 };
 

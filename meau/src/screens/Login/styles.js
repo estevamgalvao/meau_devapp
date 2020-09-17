@@ -1,5 +1,33 @@
 import styled from 'styled-components/native';
 
+export const BoxAction = styled.View`
+  flex-direction: row;
+  text-align: center;
+  height: 72px;
+  background-color: #cfe9e5;
+  elevation: 5;
+`;
+
+export const BoxForm = styled.View`
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 16px;
+  margin-right: 16px;
+`;
+
+export const BoxInput = styled.View`
+  background-color: transparent;
+  border-bottom-width: 0.8px;
+  width: 340px;
+  padding: 5px;
+  border-color: #bdbdbd;
+`;
+
+export const BoxNav = styled.StatusBar.attrs({
+  barStyle: 'light-content',
+  backgroundColor: '#88c9bf',
+})``;
+
 export const ButtonSingIn = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
@@ -70,4 +98,17 @@ export const InputPassword = styled(InputUser)`
 
 export const SafeArea = styled.SafeAreaView`
   background-color: #fafafa;
+`;
+
+export const TextButton = styled.Text`
+  font-size: 12px;
+  font-family: 'Roboto-Regular';
+  color: ${(props) => props.color || '#f7f7f7'};
+`;
+
+export const TextTitle = styled.Text`
+  font-size: 20px;
+  font-family: 'Roboto-Medium';
+  margin: auto 10px;
+  color: #434343;
 `;

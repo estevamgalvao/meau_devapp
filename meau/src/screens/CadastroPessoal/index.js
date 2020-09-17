@@ -1,37 +1,53 @@
 import React from 'react';
 import {View, TextInput, ScrollView} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
   BoxAction,
   BoxForm,
+  BoxHeader,
+  BoxImage,
   BoxInput,
   BoxNav,
   BoxText,
   Container,
+  TextButton,
   TextDesc,
   TextHeader,
+  TextImage,
   TextTitle,
 } from './styles';
+
+import {Buttons, NavigationDrawer} from '../../components';
 
 const CadastroPessoal = () => {
   return (
     <>
       <BoxNav />
       <BoxAction>
+        <NavigationDrawer
+          color="#434343"
+          backgroundColor="#cfe9e5"
+          text="CADASTRO"
+        />
         <TextTitle>Cadastro Pessoal</TextTitle>
       </BoxAction>
       <ScrollView>
         <Container>
-          <BoxText>
-            <TextDesc>
-              As informações preenchidas serão divulgadas apenas para a pessoa
-              com a qual você irá realizar o processo de adoção e/ou
-              apadrinhamento, após a formalização do processo.
-            </TextDesc>
-          </BoxText>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <BoxText>
+              <TextDesc>
+                As informações preenchidas serão divulgadas apenas para a pessoa
+                com a qual você irá realizar o processo de adoção e/ou
+                apadrinhamento, após a formalização do processo.
+              </TextDesc>
+            </BoxText>
+          </View>
 
           <BoxForm>
-            <TextHeader>INFORMAÇÕES PESSOAIS</TextHeader>
+            <BoxHeader>
+              <TextHeader>INFORMAÇÕES PESSOAIS</TextHeader>
+            </BoxHeader>
             <BoxInput>
               <TextInput
                 placeholder="Nome completo"
@@ -56,10 +72,10 @@ const CadastroPessoal = () => {
             <BoxInput>
               <TextInput placeholder="Telefone" fontFamily="Roboto-Regular" />
             </BoxInput>
-          </BoxForm>
 
-          <View>
-            <TextHeader>INFORMAÇÕES DE PERFIL</TextHeader>
+            <BoxHeader>
+              <TextHeader>INFORMAÇÕES DE PERFIL</TextHeader>
+            </BoxHeader>
             <BoxInput>
               <TextInput
                 placeholder="Nome de usuário"
@@ -80,10 +96,20 @@ const CadastroPessoal = () => {
                 fontFamily="Roboto-Regular"
               />
             </BoxInput>
+            <BoxHeader>
+              <TextHeader>FOTO DE PERFIL</TextHeader>
+            </BoxHeader>
+          </BoxForm>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <BoxImage>
+              {/* <Icon name="control-point" size={30} color="#757575" /> */}
+              <TextImage>adicionar foto</TextImage>
+            </BoxImage>
           </View>
-
-          <View>
-            <TextHeader>FOTO DE PERFIL</TextHeader>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <Buttons.Rectangular color="#88c9bf" mtop="32px" mbottom="24px">
+              <TextButton>FAZER CADASTRO</TextButton>
+            </Buttons.Rectangular>
           </View>
         </Container>
       </ScrollView>

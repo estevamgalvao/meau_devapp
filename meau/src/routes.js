@@ -26,7 +26,8 @@ const StackNavigation = () => (
 export default function App() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Login" component={StackNavigation} />
+      <Drawer.Screen name="Introducao" component={Introducao} />
+      <Drawer.Screen name="Login" component={Login} />
       <Drawer.Screen name="CadastroPessoal" component={CadastroPessoal} />
     </Drawer.Navigator>
   );
