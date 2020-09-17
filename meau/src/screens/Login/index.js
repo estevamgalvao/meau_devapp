@@ -7,7 +7,8 @@ import {
   Button,
   ScrollView,
 } from 'react-native';
-import {Buttons, NavigationDrawer} from '../../components';
+
+import {NavigationDrawer, Buttons} from '../../components';
 
 import {
   BoxAction,

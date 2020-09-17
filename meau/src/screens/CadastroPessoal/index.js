@@ -18,7 +18,7 @@ import {
   TextTitle,
 } from './styles';
 
-import {Buttons, NavigationDrawer} from '../../components';
+import {NavigationDrawer, Buttons} from '../../components';
 
 const CadastroPessoal = () => {
   return (

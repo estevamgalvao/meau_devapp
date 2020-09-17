@@ -8,7 +8,18 @@ export const Rectangular = styled.TouchableOpacity`
   elevation: 4;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.color || '#FFF5'};
-  margin-top: ${(props) => props.mtop || '25px'};
-  margin-bottom: ${(props) => props.mbottom || '25px'};
+  background-color: ${(props) => props.color || '#0005'};
+  margin-top: ${(props) => props.mtop || '0px'};
+  margin-bottom: ${(props) => props.mbottom || '0px'};
+`;
+
+export const ShortRectangular = styled.TouchableOpacity`
+  width: 100px;
+  height: 40px;
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+  background-color: ${(props) => props.color || '#0005'};
+  margin-top: ${(props) => props.mtop || '0px'};
+  margin-bottom: ${(props) => props.mbottom || '0px'};
 `;
