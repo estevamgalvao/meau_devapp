@@ -1,5 +1,6 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
+import {NavigationDrawer, SafeArea} from '../../components';
 
 import {
   Button,
@@ -10,11 +11,8 @@ import {
   ContainerMessages,
   Image,
   Message,
-  SafeArea,
   Title,
 } from './styles';
-
-import {NavigationDrawer} from '../../components';
 
 const Introducao = ({navigation}) => {
   function navigateToLogin() {
@@ -23,8 +21,8 @@ const Introducao = ({navigation}) => {
 
   return (
     <>
-      <SafeArea />
-      <NavigationDrawer />
+      <SafeArea color="#fafafa" />
+      <NavigationDrawer backgroundColor="#fafafa" color="#88c9bf" />
       <StatusBar barStyle="dark-content" />
       <Container>
         <Title>Olá!</Title>

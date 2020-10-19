@@ -62,10 +62,6 @@ export const Message = styled.Text`
   color: #757575;
 `;
 
-export const SafeArea = styled.SafeAreaView`
-  background-color: #fafafa;
-`;
-
 export const Title = styled.Text`
   font-family: 'Courgette-Regular';
   font-size: 72px;

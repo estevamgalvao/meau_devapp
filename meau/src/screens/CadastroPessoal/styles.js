@@ -22,7 +22,7 @@ export const BoxHeader = styled.View`
   justify-content: flex-start;
 `;
 
-export const BoxImage = styled.View`
+export const BoxImage = styled.TouchableOpacity`
   width: 128px;
   height: 128px;
   background-color: #e6e7e7;

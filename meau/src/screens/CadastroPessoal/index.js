@@ -1,6 +1,7 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {View, TextInput, ScrollView} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import {Buttons, NavigationDrawer, SafeArea} from '../../components';
 
 import {
   BoxAction,
@@ -18,18 +19,13 @@ import {
   TextTitle,
 } from './styles';
 
-import {Buttons, NavigationDrawer} from '../../components';
-
 const CadastroPessoal = () => {
   return (
     <>
+      <SafeArea color="#cfe9e5" />
       <BoxNav />
       <BoxAction>
-        <NavigationDrawer
-          color="#434343"
-          backgroundColor="#cfe9e5"
-          text="CADASTRO"
-        />
+        <NavigationDrawer color="#434343" backgroundColor="#cfe9e5" />
         <TextTitle>Cadastro Pessoal</TextTitle>
       </BoxAction>
       <ScrollView>
@@ -102,12 +98,15 @@ const CadastroPessoal = () => {
           </BoxForm>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <BoxImage>
-              {/* <Icon name="control-point" size={30} color="#757575" /> */}
+              <Icon name="control-point" size={30} color="#757575" />
               <TextImage>adicionar foto</TextImage>
             </BoxImage>
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Buttons.Rectangular color="#88c9bf" mtop="32px" mbottom="24px">
+            <Buttons.Rectangular
+              color="#88c9bf"
+              marginTop="32px"
+              marginBottom="24px">
               <TextButton>FAZER CADASTRO</TextButton>
             </Buttons.Rectangular>
           </View>
