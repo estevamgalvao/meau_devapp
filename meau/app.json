@@ -1,4 +1,7 @@
 {
   "name": "meau_app",
-  "displayName": "meau_app"
+  "displayName": "meau_app",
+  "android": {
+    "package": "com.meau_app" 
+  } 
 }

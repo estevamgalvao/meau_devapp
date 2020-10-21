@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
 import {StatusBar, View, TextInput, ScrollView, Text} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-// import * as firebase from 'firebase';
-// import {firestore} from 'firebase';
-// import 'firebase/firestore';
-import {firebase} from '@firebase/app';
-import '@firebase/firestore';
-
+import AsyncStorage from '@react-native-community/async-storage';
+import * as firebase from 'firebase';
+import 'firebase/firestore';
 import {Buttons, SafeArea} from '../../components';
 
 import {
@@ -24,10 +21,22 @@ import {
   TextHeader,
 } from './styles';
 
-const CadastroAnimal = () => {
-  // firebase.initializeApp();
-  const usersColletion = firebase.firestore.collection('person');
+const TesteFirebase = () => {
+  firebase
+    .firestore()
+    .collection('person')
+    .get()
+    .then((querySnapshot) => {
+      console.log('Total person: ', querySnapshot.size);
 
+      querySnapshot.forEach((documentSnapshot) => {
+        console.log('User ID: ', documentSnapshot.id, documentSnapshot.data());
+      });
+    });
+  return null;
+};
+
+const CadastroAnimal = () => {
   // Criando as variáveis que receberão os pares [valor, funçãoQueAlteraValor] para cada checkbox
   const [toggleCheckBoxEspecie1, setToggleCheckBoxEspecie1] = useState(false);
   const [toggleCheckBoxEspecie2, setToggleCheckBoxEspecie2] = useState(false);
@@ -68,7 +77,7 @@ const CadastroAnimal = () => {
         <TextTitle>Cadastro do Animal</TextTitle>
       </BoxAction>
       <ScrollView>
-        <Text>usersColletion.toString()</Text>
+        <TesteFirebase />
         <Container>
           <View
             style={{
