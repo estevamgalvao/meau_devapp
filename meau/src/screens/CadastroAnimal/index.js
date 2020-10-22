@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
-import {StatusBar, View, TextInput, ScrollView, Text} from 'react-native';
+import React, {useState, Component} from 'react';
+import {
+  StatusBar,
+  View,
+  TextInput,
+  ScrollView,
+  Text,
+  Button,
+} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-import AsyncStorage from '@react-native-community/async-storage';
-import * as firebase from 'firebase';
-import 'firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
 import {Buttons, SafeArea} from '../../components';
 
 import {
@@ -21,19 +26,79 @@ import {
   TextHeader,
 } from './styles';
 
-const TesteFirebase = () => {
-  firebase
-    .firestore()
-    .collection('person')
-    .get()
-    .then((querySnapshot) => {
-      console.log('Total person: ', querySnapshot.size);
+class FirebaseApp extends Component {
+  state = {
+    users: [],
+  };
 
-      querySnapshot.forEach((documentSnapshot) => {
-        console.log('User ID: ', documentSnapshot.id, documentSnapshot.data());
+  constructor(props) {
+    super(props);
+    this.subscriber = firestore()
+      .collection('person')
+      .onSnapshot((collec) => {
+        const users = [];
+        collec.forEach((doc) => {
+          users.push(doc.data());
+        });
+        this.setState({users});
+        console.log(users);
       });
+  }
+
+  addRandomUser = async () => {
+    const name = Math.random().toString(36).substring(7);
+    firestore().collection('person').add({
+      name_person: name,
+      age: 20,
     });
-  return null;
+  };
+
+  render() {
+    return (
+      <View>
+        <Button title="Add Radom User" onPress={this.addRandomUser} />
+        {this.state.users.map((user, index) => (
+          <View key={index}>
+            <Text>{user.name_person}</Text>
+          </View>
+        ))}
+      </View>
+    );
+  }
+}
+
+const ManageCheckboxes = () => {
+  const [toggleCB1, setToggleCB1] = useState(false);
+  const [toggleCB2, setToggleCB2] = useState(false);
+  let msg = 'maneiro';
+  if (toggleCB1 && !toggleCB2) {
+    msg = 'Olá';
+  } else {
+    msg = 'joia';
+  }
+  return (
+    <>
+      <View styled={{justifyContent: 'center', flex: 1}}>
+        <BoxForm>
+          <TextForm>ESPÉCIE {msg}</TextForm>
+        </BoxForm>
+        <BoxCheckBoxes>
+          <CheckBox
+            disabled={false}
+            value={toggleCB1}
+            onValueChange={(newValue) => setToggleCB1(newValue)}
+          />
+          <TextInitial>Cachorro</TextInitial>
+          <CheckBox
+            disabled={false}
+            value={toggleCB2}
+            onValueChange={(newValue) => setToggleCB2(newValue)}
+          />
+          <TextInitial>Gato</TextInitial>
+        </BoxCheckBoxes>
+      </View>
+    </>
+  );
 };
 
 const CadastroAnimal = () => {
@@ -69,6 +134,8 @@ const CadastroAnimal = () => {
   const [toggleCheckBoxExigen3, setToggleCheckBoxExigen3] = useState(false);
   const [toggleCheckBoxExigen4, setToggleCheckBoxExigen4] = useState(false);
 
+  // Declarando variáveis para acomodarem as entradas de texto
+
   return (
     <>
       <SafeArea color="#ffd358" />
@@ -76,8 +143,8 @@ const CadastroAnimal = () => {
       <BoxAction>
         <TextTitle>Cadastro do Animal</TextTitle>
       </BoxAction>
+      <FirebaseApp />
       <ScrollView>
-        <TesteFirebase />
         <Container>
           <View
             style={{
