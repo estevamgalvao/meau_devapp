@@ -1,12 +1,5 @@
-import React, {useState, Component} from 'react';
-import {
-  StatusBar,
-  View,
-  TextInput,
-  ScrollView,
-  Text,
-  Button,
-} from 'react-native';
+import React, {useState} from 'react';
+import {StatusBar, View, TextInput, ScrollView} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import firestore from '@react-native-firebase/firestore';
 import {Buttons, SafeArea} from '../../components';
@@ -25,81 +18,6 @@ import {
   TextTitle,
   TextHeader,
 } from './styles';
-
-class FirebaseApp extends Component {
-  state = {
-    users: [],
-  };
-
-  constructor(props) {
-    super(props);
-    this.subscriber = firestore()
-      .collection('person')
-      .onSnapshot((collec) => {
-        const users = [];
-        collec.forEach((doc) => {
-          users.push(doc.data());
-        });
-        this.setState({users});
-        console.log(users);
-      });
-  }
-
-  addRandomUser = async () => {
-    const name = Math.random().toString(36).substring(7);
-    firestore().collection('person').add({
-      name_person: name,
-      age: 20,
-    });
-  };
-
-  render() {
-    return (
-      <View>
-        <Button title="Add Radom User" onPress={this.addRandomUser} />
-        {this.state.users.map((user, index) => (
-          <View key={index}>
-            <Text>{user.name_person}</Text>
-          </View>
-        ))}
-      </View>
-    );
-  }
-}
-
-const ManageCheckboxes = () => {
-  const [toggleCB1, setToggleCB1] = useState(false);
-  const [toggleCB2, setToggleCB2] = useState(false);
-  let msg = 'maneiro';
-  if (toggleCB1 && !toggleCB2) {
-    msg = 'Olá';
-  } else {
-    msg = 'joia';
-  }
-  return (
-    <>
-      <View styled={{justifyContent: 'center', flex: 1}}>
-        <BoxForm>
-          <TextForm>ESPÉCIE {msg}</TextForm>
-        </BoxForm>
-        <BoxCheckBoxes>
-          <CheckBox
-            disabled={false}
-            value={toggleCB1}
-            onValueChange={(newValue) => setToggleCB1(newValue)}
-          />
-          <TextInitial>Cachorro</TextInitial>
-          <CheckBox
-            disabled={false}
-            value={toggleCB2}
-            onValueChange={(newValue) => setToggleCB2(newValue)}
-          />
-          <TextInitial>Gato</TextInitial>
-        </BoxCheckBoxes>
-      </View>
-    </>
-  );
-};
 
 const CadastroAnimal = () => {
   // Criando as variáveis que receberão os pares [valor, funçãoQueAlteraValor] para cada checkbox
@@ -135,6 +53,144 @@ const CadastroAnimal = () => {
   const [toggleCheckBoxExigen4, setToggleCheckBoxExigen4] = useState(false);
 
   // Declarando variáveis para acomodarem as entradas de texto
+  const [nameAnimal, setNameAnimal] = useState('');
+  const [diseaseAnimal, setDiseaseAnimal] = useState('');
+  const [aboutAnimal, setAboutAnimal] = useState('');
+
+  // Função que adiciona todos os parâmetros ao banco de dados
+  const AddAnimalData = async (
+    about,
+    age,
+    disease,
+    gender,
+    name,
+    port,
+    species,
+    temp,
+    exigen,
+    health,
+  ) => {
+    if (health[3] === 0) {
+      disease = '';
+    }
+    if (
+      age === 0 ||
+      gender === 0 ||
+      name === '' ||
+      port === 0 ||
+      species === 0 ||
+      temp === 0 ||
+      exigen < 4
+    ) {
+      throw 'Missing information or unmet requirements';
+    } else {
+      await firestore()
+        .collection('animal')
+        .add({
+          about,
+          age,
+          disease,
+          gender,
+          name,
+          port,
+          species,
+          temp,
+          exigen,
+          health,
+        })
+        .then(() => {
+          console.log('Animal added!');
+        });
+    }
+  };
+
+  // Função que recolhe todos os estados das checkbox e é acionada ao clicar em adoção
+  // chamando em seguida a função de adicionar os dados ao banco de dados passando os estados como parâmetro
+  const GetCheckbox = () => {
+    let age = 0;
+    let gender = 0;
+    let port = 0;
+    let species = 0;
+    let temp = 0;
+    let exigen = 0;
+    const health = [0, 0, 0, 0];
+
+    if (toggleCheckBoxEspecie1) {
+      species = 1;
+    } else if (toggleCheckBoxEspecie2) {
+      species = 2;
+    }
+    if (toggleCheckBoxSexo1) {
+      gender = 1;
+    } else if (toggleCheckBoxSexo2) {
+      gender = 2;
+    }
+    if (toggleCheckBoxPorte1) {
+      port = 1;
+    } else if (toggleCheckBoxPorte2) {
+      port = 2;
+    } else if (toggleCheckBoxPorte3) {
+      port = 3;
+    }
+    if (toggleCheckBoxIdade1) {
+      age = 1;
+    } else if (toggleCheckBoxIdade2) {
+      age = 2;
+    } else if (toggleCheckBoxIdade3) {
+      age = 3;
+    }
+    if (toggleCheckBoxTemp1) {
+      temp = 1;
+    } else if (toggleCheckBoxTemp2) {
+      temp = 2;
+    } else if (toggleCheckBoxTemp3) {
+      temp = 3;
+    } else if (toggleCheckBoxTemp4) {
+      temp = 4;
+    } else if (toggleCheckBoxTemp5) {
+      temp = 5;
+    } else if (toggleCheckBoxTemp6) {
+      temp = 6;
+    }
+    if (toggleCheckBoxSaude1) {
+      health[0] = 1;
+    }
+    if (toggleCheckBoxSaude2) {
+      health[1] = 2;
+    }
+    if (toggleCheckBoxSaude3) {
+      health[2] = 3;
+    }
+    if (toggleCheckBoxSaude4) {
+      health[3] = 4;
+    }
+
+    if (toggleCheckBoxExigen1) {
+      exigen += 1;
+    }
+    if (toggleCheckBoxExigen2) {
+      exigen += 1;
+    }
+    if (toggleCheckBoxExigen3) {
+      exigen += 1;
+    }
+    if (toggleCheckBoxExigen4) {
+      exigen += 1;
+    }
+
+    AddAnimalData(
+      aboutAnimal,
+      age,
+      diseaseAnimal,
+      gender,
+      nameAnimal,
+      port,
+      species,
+      temp,
+      exigen,
+      health,
+    );
+  };
 
   return (
     <>
@@ -143,7 +199,6 @@ const CadastroAnimal = () => {
       <BoxAction>
         <TextTitle>Cadastro do Animal</TextTitle>
       </BoxAction>
-      <FirebaseApp />
       <ScrollView>
         <Container>
           <View
@@ -183,6 +238,7 @@ const CadastroAnimal = () => {
               <TextInput
                 placeholder="Nome do animal"
                 fontFamily="Roboto-Regular"
+                onChangeText={(text) => setNameAnimal(text)}
               />
             </BoxInput>
             <BoxForm>
@@ -348,6 +404,7 @@ const CadastroAnimal = () => {
               <TextInput
                 placeholder="Doenças do animal"
                 fontFamily="Roboto-Regular"
+                onChangeText={(text) => setDiseaseAnimal(text)}
               />
             </BoxInput>
             <BoxForm>
@@ -392,6 +449,7 @@ const CadastroAnimal = () => {
               <TextInput
                 placeholder="Compartilhe a história do animal"
                 fontFamily="Roboto-Regular"
+                onChangeText={(text) => setAboutAnimal(text)}
               />
             </BoxInput>
           </View>
@@ -399,7 +457,8 @@ const CadastroAnimal = () => {
             <Buttons.Rectangular
               color="#FFD358"
               marginTop="0px"
-              marginBottom="24px">
+              marginBottom="24px"
+              onPress={() => GetCheckbox(nameAnimal)}>
               <TextButton color="#434343">COLOCAR PARA ADOÇÃO</TextButton>
             </Buttons.Rectangular>
           </View>
