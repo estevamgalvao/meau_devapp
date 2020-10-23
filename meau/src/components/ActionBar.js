@@ -3,7 +3,8 @@ import styled from 'styled-components/native';
 import React from 'react';
 import {StatusBar} from 'react-native';
 
-const ActionBar = ({sBarColor, aBarColor, text}) => {
+// {(sBarColor, aBarColor, text)}
+const ActionBar = (sBarColor, aBarColor, text) => {
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={sBarColor} />
