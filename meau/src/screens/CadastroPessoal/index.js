@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {View, TextInput, ScrollView} from 'react-native';
+import {View, TextInput, ScrollView, Text} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
+import {doc} from 'prettier';
 import {Buttons, NavigationDrawer, SafeArea} from '../../components';
 
 import {
@@ -20,6 +22,51 @@ import {
 } from './styles';
 
 const CadastroPessoal = () => {
+  // Declarando variáveis para acomodarem as entradas de texto
+  const [namePerson, setNamePerson] = useState('');
+  const [agePerson, setAgePerson] = useState(-1);
+  const [emailPerson, setEmailPerson] = useState('');
+  const [statePerson, setStatePerson] = useState('');
+  const [cityPerson, setCityPerson] = useState('');
+  const [cepPerson, setCepPerson] = useState('');
+  const [phonePerson, setPhonePerson] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+
+  const AddPersonData = async () => {
+    if (password === passwordConfirmation) {
+      await firestore()
+        .collection('person')
+        .doc(username)
+        .get()
+        .then((documentSnapshot) => {
+          if (documentSnapshot.exists) {
+            console.log('User already exists');
+          } else {
+            firestore()
+              .collection('person')
+              .doc(username)
+              .set({
+                age: agePerson,
+                email: emailPerson,
+                name_person: namePerson,
+                state: statePerson,
+                city: cityPerson,
+                CEP: cepPerson,
+                phone: phonePerson,
+                password_user: password,
+              })
+              .then(() => {
+                console.log('User added!');
+              });
+          }
+        });
+    } else {
+      console.log('Passwords are not the same');
+    }
+  };
+
   return (
     <>
       <SafeArea color="#cfe9e5" />
@@ -29,6 +76,11 @@ const CadastroPessoal = () => {
         <TextTitle>Cadastro Pessoal</TextTitle>
       </BoxAction>
       <ScrollView>
+        <BoxText>
+          <Text>
+            {namePerson} {agePerson}
+          </Text>
+        </BoxText>
         <Container>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <BoxText>
@@ -48,25 +100,50 @@ const CadastroPessoal = () => {
               <TextInput
                 placeholder="Nome completo"
                 fontFamily="Roboto-Regular"
+                onChangeText={(text) => setNamePerson(text)}
               />
             </BoxInput>
             <BoxInput>
-              <TextInput placeholder="Idade" fontFamily="Roboto-Regular" />
+              <TextInput
+                placeholder="Idade"
+                fontFamily="Roboto-Regular"
+                onChangeText={(text) => setAgePerson(text)}
+              />
             </BoxInput>
             <BoxInput>
-              <TextInput placeholder="E-mail" fontFamily="Roboto-Regular" />
+              <TextInput
+                placeholder="E-mail"
+                fontFamily="Roboto-Regular"
+                onChangeText={(text) => setEmailPerson(text)}
+              />
             </BoxInput>
             <BoxInput>
-              <TextInput placeholder="Estado" fontFamily="Roboto-Regular" />
+              <TextInput
+                placeholder="Estado"
+                fontFamily="Roboto-Regular"
+                onChangeText={(text) => setStatePerson(text)}
+              />
             </BoxInput>
             <BoxInput>
-              <TextInput placeholder="Cidade" fontFamily="Roboto-Regular" />
+              <TextInput
+                placeholder="Cidade"
+                fontFamily="Roboto-Regular"
+                onChangeText={(text) => setCityPerson(text)}
+              />
             </BoxInput>
             <BoxInput>
-              <TextInput placeholder="Endereço" fontFamily="Roboto-Regular" />
+              <TextInput
+                placeholder="CEP"
+                fontFamily="Roboto-Regular"
+                onChangeText={(text) => setCepPerson(text)}
+              />
             </BoxInput>
             <BoxInput>
-              <TextInput placeholder="Telefone" fontFamily="Roboto-Regular" />
+              <TextInput
+                placeholder="Telefone"
+                fontFamily="Roboto-Regular"
+                onChangeText={(text) => setPhonePerson(text)}
+              />
             </BoxInput>
 
             <BoxHeader>
@@ -76,6 +153,7 @@ const CadastroPessoal = () => {
               <TextInput
                 placeholder="Nome de usuário"
                 fontFamily="Roboto-Regular"
+                onChangeText={(text) => setUsername(text)}
               />
             </BoxInput>
             <BoxInput>
@@ -83,6 +161,7 @@ const CadastroPessoal = () => {
                 placeholder="Senha"
                 secureTextEntry
                 fontFamily="Roboto-Regular"
+                onChangeText={(text) => setPassword(text)}
               />
             </BoxInput>
             <BoxInput>
@@ -90,6 +169,7 @@ const CadastroPessoal = () => {
                 placeholder="Confirmação de senha"
                 secureTextEntry
                 fontFamily="Roboto-Regular"
+                onChangeText={(text) => setPasswordConfirmation(text)}
               />
             </BoxInput>
             <BoxHeader>
@@ -106,7 +186,8 @@ const CadastroPessoal = () => {
             <Buttons.Rectangular
               color="#88c9bf"
               marginTop="32px"
-              marginBottom="24px">
+              marginBottom="24px"
+              onPress={() => AddPersonData()}>
               <TextButton>FAZER CADASTRO</TextButton>
             </Buttons.Rectangular>
           </View>

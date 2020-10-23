@@ -82,20 +82,20 @@ const CadastroAnimal = () => {
       temp === 0 ||
       exigen < 4
     ) {
-      throw 'Missing information or unmet requirements';
+      console.log('Missing information or unmet requirements');
     } else {
       await firestore()
         .collection('animal')
         .add({
-          about,
-          age,
+          about_animal: about,
+          age_group: age,
           disease,
           gender,
-          name,
+          name_animal: name,
           port,
           species,
           temp,
-          exigen,
+          requirements: exigen,
           health,
         })
         .then(() => {
@@ -350,6 +350,8 @@ const CadastroAnimal = () => {
                 onValueChange={(newValue) => setToggleCheckBoxTemp3(newValue)}
               />
               <TextInitial>Calmo</TextInitial>
+            </BoxCheckBoxes>
+            <BoxCheckBoxes>
               <CheckBox
                 disabled={false}
                 value={toggleCheckBoxTemp4}
