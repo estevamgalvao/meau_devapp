@@ -24,7 +24,7 @@ import {
 const CadastroPessoal = () => {
   // Declarando variáveis para acomodarem as entradas de texto
   const [namePerson, setNamePerson] = useState('');
-  const [agePerson, setAgePerson] = useState(-1);
+  const [birthPerson, setbirthPerson] = useState(-1);
   const [emailPerson, setEmailPerson] = useState('');
   const [statePerson, setStatePerson] = useState('');
   const [cityPerson, setCityPerson] = useState('');
@@ -48,7 +48,7 @@ const CadastroPessoal = () => {
               .collection('person')
               .doc(username)
               .set({
-                age: agePerson,
+                birth: birthPerson,
                 email: emailPerson,
                 name_person: namePerson,
                 state: statePerson,
@@ -76,11 +76,6 @@ const CadastroPessoal = () => {
         <TextTitle>Cadastro Pessoal</TextTitle>
       </BoxAction>
       <ScrollView>
-        <BoxText>
-          <Text>
-            {namePerson} {agePerson}
-          </Text>
-        </BoxText>
         <Container>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <BoxText>
@@ -105,9 +100,9 @@ const CadastroPessoal = () => {
             </BoxInput>
             <BoxInput>
               <TextInput
-                placeholder="Idade"
+                placeholder="Data de nascimento"
                 fontFamily="Roboto-Regular"
-                onChangeText={(text) => setAgePerson(text)}
+                onChangeText={(text) => setbirthPerson(text)}
               />
             </BoxInput>
             <BoxInput>
