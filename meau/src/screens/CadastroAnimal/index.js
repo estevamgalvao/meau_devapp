@@ -19,7 +19,7 @@ import {
   TextHeader,
 } from './styles';
 
-const CadastroAnimal = () => {
+const CadastroAnimal = ({navigation, route}) => {
   // Criando as variáveis que receberão os pares [valor, funçãoQueAlteraValor] para cada checkbox
   const [toggleCheckBoxEspecie1, setToggleCheckBoxEspecie1] = useState(false);
   const [toggleCheckBoxEspecie2, setToggleCheckBoxEspecie2] = useState(false);
@@ -69,6 +69,7 @@ const CadastroAnimal = () => {
     temp,
     exigen,
     health,
+    user,
   ) => {
     if (health[3] === 0) {
       disease = '';
@@ -97,6 +98,7 @@ const CadastroAnimal = () => {
           temp,
           requirements: exigen,
           health,
+          owner: user,
         })
         .then(() => {
           console.log('Animal added!');
@@ -189,6 +191,7 @@ const CadastroAnimal = () => {
       temp,
       exigen,
       health,
+      route.params.userLogged,
     );
   };
 

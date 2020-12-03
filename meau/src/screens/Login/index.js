@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, TextInput} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
-import {Buttons, NavigationDrawer, SafeArea} from '../../components';
+import {Buttons, NavigationDrawer, SafeArea, Functions} from '../../components';
 
 import {
   BoxAction,
@@ -13,9 +13,13 @@ import {
   TextButton,
 } from './styles';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  function navigateToMenuPerfil() {
+    navigation.navigate('MenuPerfil', {userLogged: username});
+  }
 
   const WelcomeUser = () => {
     return (
@@ -35,12 +39,13 @@ const Login = () => {
       .then((documentSnapshot) => {
         if (documentSnapshot.exists) {
           if (documentSnapshot.data().password_user === password) {
-            console.log('Seja bem vindo,', username, '! Você está logado.');
+            console.log('Welcome,', username, '! Youre in.');
+            navigateToMenuPerfil();
           } else {
-            console.log('Usuário ou senha inválidos.');
+            console.log('User or password incorrect.');
           }
         } else {
-          console.log('Usuário ou senha inválidos.');
+          console.log('User or password incorrect.');
         }
       });
   };
